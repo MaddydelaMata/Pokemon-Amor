@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokébola Animada</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio id="pokeballSound" src="./audio/sonido-pokebola.mp3"></audio>
+    
+
+    <div class="pokebola" id="pokebola">
+        <div class="parte-superior"></div>
+        <div class="linea-negra"></div>
+        <div class="parte-inferior"></div>
+        <div class="heart" id="heart"></div>
+    </div>
+
+    <div class="humo" id="humo"></div> <!-- Efecto de humo -->
+    <div class="particulas" id="particulas"></div> <!-- Efecto de partículas -->
+
+    <div class="carta-pokemon" id="carta">
+        <div class="header">
+            <h2 class="nombre">JP y MADDY</h2>
+            <span class="hp"><span class="infinito">∞</span> HP❤️</span>
+        </div>
+        <div class="imagen-container">
+            <img src="img/pareja.jpg" alt="Foto de tu novio" class="pokemon-imagen">
+        </div>
+
+        <div class="banner">
+            FELIZ SAN VALENTÍN
+        </div>
+        
+        <div class="primero">
+            <span class="icono">❤️</span>
+            <span class="elegir">Yo Te Elijo</span>
+            <span class="numero">100</span>
+        </div>
+        
+
+        <hr class="linea-divisoria">
+
+        <div class="segundo">
+            <span class="icono">❤️❤️</span>
+            <span class="texto">
+                <strong>Amor De Mi Vida</strong> cada segundo, minuto y día. Te amo más y más. Feliz San Valentín.
+            </span>
+            <span class="numero">500</span>
+        </div>
+        
+        <hr class="linea-divisoria">
+        
+        <div class="tercero">
+            <div class="debilidad">
+                <span class="titulo">Debilidad</span>
+                <span class="icono">🖤</span> <!-- Corazón oscuro -->
+            </div>
+            <div class="resistencia">
+                <span class="titulo">Resistencia</span>
+                <span class="icono">🍷</span> <!-- Icono de alcohol -->
+            </div>
+            <div class="numero">-30</div>
+        </div>
+        
+
+
+        <button id="cerrar">Cerrar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

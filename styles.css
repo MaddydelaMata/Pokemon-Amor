@@ -1,0 +1,413 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between; /* JP a la izquierda y HP a la derecha */
+    align-items: center; /* Alinea JP y HP en la misma línea */
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 20px;
+    background-color:  rgb(245, 136, 136);
+    color: rgb(0, 0, 0);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 30px; /* Ajusta la altura para evitar espacios extra */
+    margin-bottom: -20px; /* Reduce el espacio debajo del título */
+    position: relative;
+    top: -20px; /* Sube los elementos */
+}
+
+.hp {
+    font-size: 15px; /* Tamaño del corazón */
+    font-weight: bold;
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    gap: 5px; /* Espacio entre los elementos */
+}
+
+.infinito {
+    font-size: 30px; /* Hace el signo de infinito más grande */
+    font-weight: bold;
+}
+
+
+
+.pokebola { 
+    width: 450px;
+    height: 450px;
+    background: white;
+    border: 10px solid black;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.carta-pokemon {
+    background-color: rgb(245, 136, 136) !important;
+    transition: opacity 0.3s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 5;
+}
+
+.carta-pokemon img {
+    width: 280px; /* Aumenta el ancho */
+    height: 180px; /* Reduce la altura */
+    object-fit: cover; /* Evita deformaciones */
+    border-radius: 4px; /* Opcional, suaviza los bordes */
+    border: 4px solid rgb(194, 167, 16);
+}
+
+.carta-pokemon.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);  
+}
+
+.banner {
+    width: 50%; /* Mitad del tamaño de la imagen */
+    background-color: rgb(194, 167, 16);
+    color: black;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 2px;
+    margin: -5px auto 0; /* Lo sube y lo centra */
+}
+
+.primero {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos en tres partes iguales */
+    align-items: center;
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Asegurar que cada elemento tenga el mismo espacio */
+.primero span {
+    flex: 1;
+    text-align: center;
+}
+
+/* Ajuste del icono (corazón) más a la izquierda */
+.primero .icono {
+    text-align: left;
+    margin-left: 0px; /* Mueve el corazón un poco a la izquierda */
+}
+
+.primero .numero {
+    text-align: right;
+}
+
+.segundo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Mantener el mismo espacio */
+.segundo span {
+    flex: 1;
+    text-align: center;
+}
+
+/* Mover los corazones a la izquierda */
+.segundo .icono {
+    text-align: left;
+    margin-left: 0px; /* Ajusta según sea necesario */
+}
+
+.segundo .numero {
+    text-align: right;
+}
+
+/* Ajuste del texto más pequeño */
+.segundo .texto {
+    flex: 2; /* Hace que el texto central tenga más espacio */
+    font-size: 12px; /* Tamaño más pequeño para la parte no negrita */
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Mantener "Amor De Mi Vida" en negrita */
+.segundo .texto strong {
+    font-size: 15px;
+}
+
+.tercero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Ajuste de cada columna */
+.tercero div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Ajuste específico para "Debilidad" */
+.tercero .debilidad {
+    align-items: flex-start;
+    margin-left: 0px;
+    text-align: left;
+}
+
+/* Ajuste específico para "Resistencia" */
+.tercero .resistencia {
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Reducir la distancia entre "Debilidad" y el corazón negro */
+.tercero .debilidad .titulo {
+    font-size: 10px; /* Reducir tamaño */
+    margin-bottom: 2px; /* Acerca más el texto al ícono */
+}
+
+/* Reducir la distancia entre "Resistencia" y el icono de alcohol */
+.tercero .resistencia .titulo {
+    font-size: 10px;
+    margin-bottom: 2px; /* Mismo ajuste que el de "Debilidad" */
+}
+
+/* Ajuste del tamaño de los iconos */
+.tercero .icono {
+    font-size: 20px;
+    margin-top: -4px; /* Acercar el icono al texto */
+}
+
+/* Ajuste del número */
+.tercero .numero {
+    text-align: right;
+    font-size: 17px;
+}
+
+
+.linea-divisoria {
+    border: none; /* Elimina el borde predeterminado */
+    height: 3px; /* Grosor de la línea */
+    background-color: black; /* Color negro */
+    margin: 10px 0; /* Espaciado superior e inferior */
+}
+
+.pokebola .parte-superior {
+    width: 100%;
+    height: 50%;
+    background: red;
+    position: absolute;
+    top: 0;
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    transition: transform 0.8s ease-in-out;
+}
+
+.pokebola .parte-inferior {
+    width: 100%;
+    height: 50%;
+    background: white;
+    position: absolute;
+    bottom: 0;
+    border-bottom-left-radius: 50% 100%;
+    border-bottom-right-radius: 50% 100%;
+    transition: transform 0.8s ease-in-out;
+}
+
+.linea-negra {
+    width: 100%;
+    height: 20px;
+    background: black;
+    position: absolute;
+    top: 49%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.heart {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background-color: rgb(252, 13, 216);
+    transform: translate(-50%, -50%) rotate(-45deg);
+    top: 50%;
+    left: 50%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background-color: rgb(252, 13, 216);
+    border-radius: 50%;
+}
+
+.heart::before { top: -45px; left: 0; }
+.heart::after { left: 45px; top: 0; }
+
+.carta-pokemon {
+    width: 300px;
+    height: 400px;
+    background: #fff;
+    border:  15px solid rgb(194, 167, 16);
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+#cerrar {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#cerrar:hover {
+    background: darkred;
+}
+
+.abierto .parte-superior {
+    transform: translateY(-100%);
+}
+
+.abierto .parte-inferior {
+    transform: translateY(100%);
+}
+
+.abierto .heart {
+    opacity: 0;
+}
+
+.abierto .carta-pokemon {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.carta-pokemon.cerrando {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-20px); }
+    60% { transform: translateY(0); }
+    80% { transform: translateY(-10px); }
+}
+
+.pokebola.movimiento {
+    animation: bounce 0.5s ease-in-out, shake 0.3s ease-in-out 0.5s;
+}
+
+@keyframes resplandor {
+    0% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+    100% { box-shadow: 0 0 35px rgba(255, 215, 0, 1); }
+}
+
+.carta-pokemon.visible {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    animation: resplandor 1.5s infinite alternate ease-in-out;
+}
+
+/* Efecto de partículas */
+.particulas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 0, 0.6), rgba(255, 255, 0, 0));
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.particulas.activo {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+/* Efecto de humo */
+.humo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(200, 200, 200, 0.6), rgba(200, 200, 200, 0));
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.humo.activo {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(2);
+}
+
+/* Animación de brillo en la carta */
+@keyframes resplandor {
+    0% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+    100% { box-shadow: 0 0 35px rgba(255, 215, 0, 1); }
+}
+
+.carta-pokemon.visible {
+    animation: resplandor 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes girar {
+    0% { transform: translate(-50%, -50%) scale(0) rotate(-180deg); }
+    100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+}
+
+.carta-pokemon.visible {
+    animation: girar 0.5s ease-out;
+}
+
+
